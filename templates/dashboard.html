@@ -1,0 +1,73 @@
+{% extends "bootstrap/base.html" %}
+
+{#{% block head %}#}
+{#{{super()}}#}
+{#{% block favicon %}<link rel="shortcut icon" href="{{ url_for('.static', filename='favicon.ico') }}">{% endblock %}#}
+{#{% block feeds %}{% endblock %}#}
+{#{% endblock %}#}
+
+
+{% block title %}
+  Dashboard
+{% endblock %}
+
+{% block styles %}
+  {{super()}}
+  <link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+{% endblock %}
+
+<!--How to load in database data from endpoint-->
+{% block scripts%}
+  {{super()}}
+{% endblock %}
+
+{% block content %}
+  <script type="text/javascript" src="{{url_for('.static', filename='database_api.js')}}"></script>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+<!--<img src="{{url_for('.static', filename='favicon.ico')}}" alt="Theatro" style="float:left;width:25px;height:25px;">-->
+          <a class="navbar-brand" href="#">Welcome, {{ name }}</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+          </ul>
+          <!--Search bar-->
+          <!--<form class="navbar-form navbar-right">-->
+            <!--<input type="text" class="form-control" placeholder="Search...">-->
+          <!--</form>-->
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-1 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+          </ul>
+          <ul id="CompanyList">
+          </ul>
+
+        </div>
+        <div id="TableWorkspace" class="col-sm-9 col-sm-offset-3 col-md-11 col-md-offset-1 main">
+          <h1 class="page-header">Free Example</h1>
+          <div class="table-responsive">
+            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=11BYv8BUxY6oi6igoSFkXQMmItRgYeGkz" width="640" height="480"></iframe>
+          </div>
+
+        </div>
+      </div>
+    </div>
+{% endblock %}
+

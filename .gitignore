@@ -1,0 +1,21 @@
+# Pycharm Stuff
+*.pyc
+.idea/
+
+# Unfinished
+
+# Log Files
+*.log
+
+# Compressed Stuff
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Misc
+todo.md
